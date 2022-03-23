@@ -33,6 +33,7 @@ function convertToLowerCase(myString){
  */
 
 function convertToUpperCase(word) {
+    //comment
     word.toLowerCase();
     return word.toUpperCase();
 }
