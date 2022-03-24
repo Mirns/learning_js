@@ -13,8 +13,6 @@ function isOdd(num){
     }else{
         return "Not odd"
     }
-
-
 }
 
 
@@ -55,8 +53,6 @@ function oddOrEven(num){
 }
 
 
-
-
 /**
  * Exercise 4
  *
@@ -67,8 +63,6 @@ function oddOrEven(num){
 function roundedNumber(floatNum){
     return Math.round(floatNum)
 }
-
-
 
 
 /**

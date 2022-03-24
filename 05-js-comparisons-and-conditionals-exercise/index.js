@@ -15,6 +15,9 @@ const sortOrder = "ALPHABETICAL";
  * coerced equality to compare {target} and {userValue}
  */
 
+let targetMatchesCoercedUserValue = (target == userValue)
+
+
 
 /**
  * Exercise 2
@@ -23,12 +26,18 @@ const sortOrder = "ALPHABETICAL";
  * strict equality to compare {target} and {userValue}
  */
 
+targetMatchesUserValue = (target === userValue)
+
+
 /**
  * Exercise 3
  *
  * create a variable {passwordMatchesConfirmation} which uses
  * strict equality to compare {password} and {passwordConfirmation}
  */
+
+passwordMatchesConfirmation = (password === passwordConfirmation)
+
 
 /**
  * Exercise 4
@@ -37,9 +46,19 @@ const sortOrder = "ALPHABETICAL";
  * if {password} and {passwordConfirmation} do not match
  */
 
+if(passwordMatchesConfirmation !== true){
+    passwordMessage = "Oops, your password and confirmation do not match!"
+}
+
+
+
 /**
  * Exercise 5
  *
  * create a variable {fruits} which should be equal to
  * "banana, cherry, watermelon" if {sortOrder} equals to "ALPHABETICAL"
  */
+
+if(sortOrder === "ALPHABETICAL"){
+    fruits = "banana, cherry, watermelon"
+}
