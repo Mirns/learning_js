@@ -6,6 +6,14 @@
  *
  * PS: use console.log() to see the result
  */
+let user =
+{
+    firstName: "Bob",
+    lastName: "Done",
+    age: 12
+}
+
+console.log(user)
 
 /**
  * Exercise 2
@@ -16,6 +24,24 @@
  * PS: use console.log() to see the result
  */
 
+let allTypes =
+    {
+        name: "Students",
+        number: 7,
+        arr: ["Steve","Graig","Tim"],
+        isclassRoom:true,
+        a: aStudent = {name:"Yanick", age:16, grade:10},
+        nameIt : function studentClass(){
+           let location = "South Africa"
+        }
+    };
+
+
+console.log(allTypes)
+
+
+
+
 /**
  * Exercise 3
  *
@@ -25,3 +51,16 @@
  *
  * PS: use console.log() to see the result
  */
+
+function createMovieObject(name,rating,ticketPrice)
+{
+    let movieObject={
+        name: name,
+        rating: rating,
+        ticketPrice: ticketPrice
+    }
+
+    return movieObject
+}
+
+console.log(createMovieObject)
