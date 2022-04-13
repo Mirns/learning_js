@@ -29,6 +29,10 @@ const user = {
  * PS: use console.log() to see the result
  */
 
+let userFirstName = user.firstName
+console.log(userFirstName)
+
+
 /**
  * Exercise 2
  *
@@ -39,6 +43,10 @@ const user = {
  * PS: use console.log() to see the result
  */
 
+let favoriteMovie = user.favoriteMovies[0]
+console.log(favoriteMovie)
+
+
 /**
  * Exercise 3
  * create "userFullName" that equals to
@@ -47,6 +55,9 @@ const user = {
  *
  * PS: use console.log() to see the result
  */
+
+let userFullName = userFirstName + " " + user.lastName
+console.log(userFullName)
 
 /**
  * Exercise 4
@@ -57,6 +68,12 @@ const user = {
  * PS: use console.log() to see the result
  */
 
+function getFullName()
+{
+  return userFullName
+}
+
+
 /**
  * Exercise 5
  *
@@ -65,6 +82,10 @@ const user = {
  *
  * PS: use console.log() to see the result
  */
+
+let mothersFirstName = user.parents.mother.firstName
+console.log(mothersFirstName)
+
 
 /**
  * Exercise 6
@@ -76,6 +97,40 @@ const user = {
  * PS: use console.log() to see the result
  */
 
+
+function getParentFullName(parentType)
+  {
+    //let momFN = user.parents.mother.firstName + " " + user.parents.mother.lastName
+    //let dadFN = user.parents.father.firstName + " " + user.parents.father.lastName
+
+
+    //let parents = momFN.concat("\n", dadFN)
+    //let parents = momFN.concat(" ", dadFN)
+
+    //return momFN
+    if(parentType === "mother")
+    {
+      let fName = user.parents.mother.firstName
+      let lName = user.parents.mother.lastName
+
+      let fullName = fName + " " + lName
+      return fullName
+
+    }
+    else if(parentType === "father")
+    {
+      let fNameD = user.parents.father.firstName
+      let lNameD = user.parents.father.lastName
+
+      let fullNameD = fNameD + " " + lNameD
+      return fullNameD
+    }
+
+  }
+
+
+console.log(getParentFullName)
+
 /**
  * Exercise 7
  *
@@ -84,3 +139,29 @@ const user = {
  *
  * * PS: use console.log() to see the result
  */
+
+
+/*
+function getUserData(objRef){
+  return objRef.value
+
+}
+
+
+ob = getUserData(user)
+console.log(ob)
+
+ */
+
+function getUserData(propName)
+ {
+    return user[propName]
+  }
+
+console.log(getUserData("firstName"))
+
+
+
+
+
+
