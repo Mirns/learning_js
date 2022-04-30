@@ -11,6 +11,21 @@ let count = 10; // DO NOT TOUCH THIS LINE :)
 
 // ==========================
 
+function countdown()
+{
+     while(count > 0)
+    {
+        //count --;
+        console.log("Remaining: " + count)
+        count --;
+    }
+    console.log("Go!");
+    return ""
+}
+
+
+
+
 /**
  * Exercise 2
  *
@@ -20,6 +35,25 @@ let count = 10; // DO NOT TOUCH THIS LINE :)
  */
 
 // ==========================
+
+function countdownWithParam(num)
+{
+    while(num>0)
+    {
+        let text = "Remaining: " + num;
+        num --;
+        console.log(text)
+    }
+
+
+    if(num === 0)
+    {
+        console.log("Go!")
+    }
+}
+
+
+
 let ruler = [];
 /**
  * Exercise 3
@@ -32,6 +66,26 @@ let ruler = [];
 
 // ==========================
 
+function rulerConstructor()
+{
+    let i = 0;
+
+    for(i = 0; i<=100; i++)
+    {
+        if(i%10===0)
+        {
+            ruler.push(i)
+        }
+    }
+
+    //console.log(ruler)
+    return ruler
+}
+
+//console.log(rulerConstructor())
+
+
+
 /**
  * Exercise 4
  * create a function {partyPadding} which takes an array of names
@@ -39,3 +93,19 @@ let ruler = [];
  * "Neighbour" to the array until you have at least 5 guests.
  * Without using an if statement!
  */
+
+
+function partyPadding(arrNames)
+{
+    while(arrNames.length < 5)
+    {
+        arrNames.push("Neighbour")
+    }
+
+    console.log(arrNames)
+    return arrNames;
+}
+
+
+
+
