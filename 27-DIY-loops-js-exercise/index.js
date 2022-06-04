@@ -38,6 +38,99 @@ const dataTypes = [
  * }
  */
 
+
+//let results = {}
+
+
+function sortedData(dataTypes)
+{
+  let results = {}
+
+  for(let i=0;i<dataTypes.length;i++)
+  {
+    //1. strings,
+    if(typeof dataTypes[i] === 'string')
+    {
+      if(results.strings)
+      {
+        results.strings.push(dataTypes[i])
+      }
+      else
+      {
+        results.strings = [dataTypes[i]]
+      }
+    }
+
+    //2. integers,
+    if(Number.isInteger(dataTypes[i]))
+    {
+      if(results.integers)
+      {
+        results.integers.push(dataTypes[i])
+      }
+      else
+      {
+        results.integers = [dataTypes[i]]
+      }
+    }
+
+
+    // 3. floats,
+    if(typeof dataTypes[i] === 'number' &&
+        !Number.isNaN(dataTypes[i]) &&
+        !Number.isInteger(dataTypes[i]))
+    {
+      if(results.floats)
+      {
+        results.floats.push(dataTypes[i])
+      }
+      else
+      {
+        results.floats = [dataTypes[i]]
+      }
+    }
+
+
+    //4. arrays,
+    if(Array.isArray(dataTypes[i]))
+    {
+      if(results.arrays)
+      {
+        results.arrays.push(dataTypes[i])
+      }
+      else
+      {
+        results.arrays = [dataTypes[i]]
+      }
+    }
+
+
+    //5. objects
+    if(typeof dataTypes[i] === 'object' &&
+        dataTypes[i] !== null &&
+        !Array.isArray(dataTypes[i]))
+    {
+      if(results.objects)
+      {
+        results.objects.push(dataTypes[i])
+      }
+      else
+      {
+        results.objects = [dataTypes[i]]
+      }
+    }
+
+  }
+
+
+  return results
+
+}
+
+console.log(sortedData(dataTypes))
+
+
+
 /**
  * Exercise 2
  *
@@ -49,6 +142,39 @@ const dataTypes = [
  * Ex: pass [3,2,6]
  * result: [6, 12, 6]
  */
+
+
+
+function multipliedByNextNumber(myArr){
+  let newArr = [];
+
+  let lg = myArr.length
+
+  // console.log(myArr[lg-1])
+
+  for(let i=0;i<lg;i++)
+  {
+    if(i==lg-1)
+    {
+      let v = myArr[i] * 1
+      newArr.push(v)
+    }
+    else
+    {
+      let v = myArr[i] * myArr[i+1]
+      newArr.push(v)
+    }
+  }
+
+  return newArr
+}
+
+
+console.log(multipliedByNextNumber([3,2,6]))
+
+
+
+
 
 /**
  * Exercise 3
@@ -63,6 +189,62 @@ const dataTypes = [
  * result: [24, 3, 48, 16, 5, 7]
  */
 
+
+function multipliedEvenNumbers(arr)
+{
+  //Input: [4,3,6,8,5,7]
+  // ANS:  [24, 3, 48, 16, 5, 7]
+
+  let newArr = [];
+  let ln = arr.length;
+
+  for(let i=0; i<ln; i++)
+  {
+    let myi = arr[i];
+    let num2 = 2;
+
+    if(arr[i]%2===0)
+    {
+
+      let num1 = myi;
+
+      for(let j=i+1;j<ln-1;j++)
+      {
+        let myj = arr[j];
+
+        if(myj%2===0)
+        {
+          num2 = myj;
+          break;
+        }
+        else
+        {
+          num2 = 2;
+        }
+
+      }
+
+      let prod = num1*num2;
+      newArr.push(prod);
+
+    }
+
+    else
+
+    {
+      newArr.push(arr[i]);
+    }
+
+
+  }
+
+  return newArr;
+}
+
+console.log(multipliedEvenNumbers([4,3,6,8,5,7]))
+
+
+
 /**
  * Exercise 4
  *
@@ -76,6 +258,69 @@ const dataTypes = [
  * result: [4, 15, 6, 8, 35, 7]
  */
 
+
+function multipliedOddNumbers(arr)
+{
+  //Input: [4,3,6,8,5,7]
+  // ANS:  [4, 15, 6, 8, 35, 7]
+
+  let newArr = [];
+  ln = arr.length;
+
+
+
+  for(let i=0; i<ln; i++)
+  {
+    let myi = arr[i];
+    let num2 = 1;
+
+    //if its odd
+    if(arr[i]%2!==0)
+    {
+
+      let num1 = myi;
+
+      for(let j=i+1;j<ln;j++)
+      {
+        let myj = arr[j];
+        num2 = myj;
+
+        if(myj%2!==0)
+        {
+          num2 = arr[j];
+          break;
+
+        }
+
+
+      }
+      if(num2%2===0 || num2 === null)
+      {
+        num2 = 1;
+      }
+
+      let prod = num1*num2;
+      newArr.push(prod);
+
+    }
+
+    else
+
+    {
+      newArr.push(arr[i]);
+      //newArr.push("even");
+    }
+
+  }
+
+  return newArr;
+}
+
+console.log(multipliedOddNumbers([4,3,6,8,5,7]))
+
+
+
+
 /**
  * Exercise 5
  *
@@ -86,3 +331,21 @@ const dataTypes = [
  * if you pass "odd" do the same what you have for exercise 4
  * else return original array.
  */
+
+function multipliedEvenOddNumbers(myArr, type)
+{
+  if(type === "even")
+  {
+    return multipliedEvenNumbers(myArr);
+  }
+  else if(type === "odd")
+  {
+    return multipliedOddNumbers(myArr);
+  }
+  else
+  {
+    return myArr;
+  }
+}
+
+//console.log(multipliedEvenOddNumber(arr,"odd"));
